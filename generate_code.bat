@@ -1,4 +1,4 @@
-java -jar tools/openapi-generator-cli-7.3.0.jar generate -g dart -i api.yaml -o openapi
+java -jar tools/openapi-generator-cli-7.12.0.jar generate -g dart -i api.yaml -o openapi
 
 cd openapi
 

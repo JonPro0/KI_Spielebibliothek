@@ -3,7 +3,7 @@
 # script file needs to be executable: chmod +x generate_code.sh
 
 # Generate Dart code using openapi-generator
-java -jar tools/openapi-generator-cli-7.3.0.jar generate -g dart -i api.yaml -o openapi
+java -jar tools/openapi-generator-cli-7.12.0.jar generate -g dart -i api.yaml -o openapi
 
 # Navigate to the generated directory
 cd openapi
