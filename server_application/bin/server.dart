@@ -18,7 +18,7 @@ class EnvVariables {
 }
 
 
-Ai _ai = OpenAiChat(model: GptTurbo0631Model());
+Ai _ai = OpenAiChat(model: Gpt4ChatModel());
 
 
 final _router = Router()
