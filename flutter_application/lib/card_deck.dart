@@ -1,0 +1,62 @@
+import 'package:flutter_application/Card.dart';
+
+class CardDeck {
+  final List<PlayCard> _CardDeck = [
+    PlayCard(value: 11, word: 'Herz Ass', img: '../assets/images/Herz_Ass.png'),
+    PlayCard(value: 2, word: 'Herz 2', img: '../assets/images/Herz_2.png'),
+    PlayCard(value: 3, word: 'Herz 3', img: '../assets/images/Herz_3.png'),
+    PlayCard(value: 4, word: 'Herz 4', img: '../assets/images/Herz_4.png'),
+    PlayCard(value: 5, word: 'Herz 5', img: '../assets/images/Herz_5.png'),
+    PlayCard(value: 6, word: 'Herz 6', img: '../assets/images/Herz_6.png'),
+    PlayCard(value: 7, word: 'Herz 7', img: '../assets/images/Herz_7.png'),
+    PlayCard(value: 8, word: 'Herz 8', img: '../assets/images/Herz_8.png'),
+    PlayCard(value: 9, word: 'Herz 9', img: '../assets/images/Herz_9.png'),
+    PlayCard(value: 10, word: 'Herz 10', img: '../assets/images/Herz_10.png'),
+    PlayCard(value: 10, word: 'Herz Bube', img: '../assets/images/Herz_Bube.png'),
+    PlayCard(value: 10, word: 'Herz Dame', img: '../assets/images/Herz_Dame.png'),
+    PlayCard(value: 10, word: 'Herz Koenig', img: '../assets/images/Herz_Koenig.png'),
+    PlayCard(value: 11, word: 'Karo Ass', img: '../assets/images/Karo_Ass.png'),
+    PlayCard(value: 2, word: 'Karo 2', img: '../assets/images/Karo_2.png'),
+    PlayCard(value: 3, word: 'Karo 3', img: '../assets/images/Karo_3.png'),
+    PlayCard(value: 4, word: 'Karo 4', img: '../assets/images/Karo_4.png'),
+    PlayCard(value: 5, word: 'Karo 5', img: '../assets/images/Karo_5.png'),
+    PlayCard(value: 6, word: 'Karo 6', img: '../assets/images/Karo_6.png'),
+    PlayCard(value: 7, word: 'Karo 7', img: '../assets/images/Karo_7.png'),
+    PlayCard(value: 8, word: 'Karo 8', img: '../assets/images/Karo_8.png'),
+    PlayCard(value: 9, word: 'Karo 9', img: '../assets/images/Karo_9.png'),
+    PlayCard(value: 10, word: 'Karo 10', img: '../assets/images/Karo_10.png'),
+    PlayCard(value: 10, word: 'Karo Bube', img: '../assets/images/Karo_Bube.png'),
+    PlayCard(value: 10, word: 'Karo Dame', img: '../assets/images/Karo_Dame.png'),
+    PlayCard(value: 10, word: 'Karo Koenig', img: '../assets/images/Karo_Koenig.png'),
+    PlayCard(value: 11, word: 'Kreuz Ass', img: '../assets/images/Kreuz_Ass.png'),
+    PlayCard(value: 2, word: 'Kreuz 2', img: '../assets/images/Kreuz_2.png'),
+    PlayCard(value: 3, word: 'Kreuz 3', img: '../assets/images/Kreuz_3.png'),
+    PlayCard(value: 4, word: 'Kreuz 4', img: '../assets/images/Kreuz_4.png'),
+    PlayCard(value: 5, word: 'Kreuz 5', img: '../assets/images/Kreuz_5.png'),
+    PlayCard(value: 6, word: 'Kreuz 6', img: '../assets/images/Kreuz_6.png'),
+    PlayCard(value: 7, word: 'Kreuz 7', img: '../assets/images/Kreuz_7.png'),
+    PlayCard(value: 8, word: 'Kreuz 8', img: '../assets/images/Kreuz_8.png'),
+    PlayCard(value: 9, word: 'Kreuz 9', img: '../assets/images/Kreuz_9.png'),
+    PlayCard(value: 10, word: 'Kreuz 10', img: '../assets/images/Kreuz_10.png'),
+    PlayCard(value: 10, word: 'Kreuz Bube', img: '../assets/images/Kreuz_Bube.png'),
+    PlayCard(value: 10, word: 'Kreuz Dame', img: '../assets/images/Kreuz_Dame.png'),
+    PlayCard(value: 10, word: 'Kreuz Koenig', img: '../assets/images/Kreuz_Koenig.png'),
+    PlayCard(value: 11, word: 'Pik Ass', img: '../assets/images/Pik_Ass.png'),
+    PlayCard(value: 2, word: 'Pik 2', img: '../assets/images/Pik_2.png'),
+    PlayCard(value: 3, word: 'Pik 3', img: '../assets/images/Pik_3.png'),
+    PlayCard(value: 4, word: 'Pik 4', img: '../assets/images/Pik_4.png'),
+    PlayCard(value: 5, word: 'Pik 5', img: '../assets/images/Pik_5.png'),
+    PlayCard(value: 6, word: 'Pik 6', img: '../assets/images/Pik_6.png'),
+    PlayCard(value: 7, word: 'Pik 7', img: '../assets/images/Pik_7.png'),
+    PlayCard(value: 8, word: 'Pik 8', img: '../assets/images/Pik_8.png'),
+    PlayCard(value: 9, word: 'Pik 9', img: '../assets/images/Pik_9.png'),
+    PlayCard(value: 10, word: 'Pik 10', img: '../assets/images/Pik_10.png'),
+    PlayCard(value: 10, word: 'Pik Bube', img: '../assets/images/Pik_Bube.png'),
+    PlayCard(value: 10, word: 'Pik Dame', img: '../assets/images/Pik_Dame.png'),
+    PlayCard(value: 10, word: 'Pik Koenig', img: '../assets/images/Pik_Koenig.png')
+  ];
+
+  List<PlayCard> createNewCardDeck(){
+    return _CardDeck;
+  }
+}
