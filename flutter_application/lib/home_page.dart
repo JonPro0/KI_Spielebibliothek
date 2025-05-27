@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/game_page.dart';
+import 'package:flutter_application/rules_page.dart';
 import 'package:flutter_application/shop_page.dart';
-import 'package:openapi/api.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -16,45 +15,23 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   _HomePageState();
 
-  String _userInput = "";
-  String _aiAnswer = "";
-
-  ChatApi? _api;
-
-  void _setAiAnswer(Message message) {
-    setState(() {
-      _aiAnswer = message.message ?? "<no message received>";
-    });
-  }
-
-  void _setUserInput(String input) {
-    _userInput = input;
-  }
-
   void _startGame() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const GamePage()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const GamePage()));
   }
 
   void _openShop() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const ShopPage()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const ShopPage()));
   }
 
-  void _askAI() async {
-    var message = Message(
-      timestamp: DateTime.now().toUtc(),
-      author: MessageAuthorEnum.user,
-      message: _userInput,
-    );
-
-    var response = await _api!.chat(message);
-
-    _setAiAnswer(response!);
+  void _openRules() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const RulesPage()));
   }
 
   @override
   Widget build(BuildContext context) {
-    _api = Provider.of<ChatApi>(context);
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -84,32 +61,18 @@ class _HomePageState extends State<HomePage> {
                     child: const Text('Shop'),
                   ),
                 ),
+                const SizedBox(height: 16), // Abstand zwischen Buttons
+                SizedBox(
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: _openRules,
+                    child: const Text('Regeln'),
+                  ),
+                ),
               ],
             ),
           ),
-
-          /* TextField(
-            key: const Key('UserInputTextField'),
-            maxLines: 5,
-            decoration: const InputDecoration(
-              hintText: 'Enter text here',
-            ),
-            onChanged: (String value) {
-              _setUserInput(value);
-            },
-          ),
-          Expanded(
-            child: Text(
-              _aiAnswer,
-              key: const Key('AiAnswerText'),
-            ),
-          ), */
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Ask AI',
-        onPressed: _askAI,
-        child: const Icon(Icons.send),
       ),
     );
   }
