@@ -14,6 +14,8 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
+  //--------------------------------------Variablen-------------------------------------------------------------------------------------
+
   bool _showStartButton = true;
   bool _isButtonEnabled = false;
   bool _showResult = false;
@@ -31,6 +33,8 @@ class _GamePageState extends State<GamePage> {
   String _winner = '';
   String _aiAnswer = '';
   // ChatApi? _api;
+
+  //-------------------------Methoden Game Logik---------------------------------------------------------------------------------------------
 
   void _startGame() {
     if (_bet > 0 && _bet <= _money) {
@@ -159,6 +163,8 @@ class _GamePageState extends State<GamePage> {
       _showStartButton = true;
       _imagePathsDealer.clear();
       _imagePathsPlayer.clear();
+      _playerScore = 0;
+      _dealerScore = 0;
       _oldMoney = _money;
     });
   }
@@ -168,12 +174,7 @@ class _GamePageState extends State<GamePage> {
     return random.nextInt(x) + 1;
   }
 
-  /* void _setAiAnswer(Message message) {
-    setState(() {
-      _aiAnswer =  ' KI sagt: -> ${message.message}';
-      _aiAnswer += 'Karte';
-    });
-  } */
+//-----------------------------------Methode zur Darstellung ohne KI---------------------------------------------------------
 
   void _setAiAnswerWithoutAI() {
     setState(() {
@@ -181,6 +182,15 @@ class _GamePageState extends State<GamePage> {
           'Im nächsten Update stehe ich wieder zur Verfügung';
     });
   }
+
+//----------------------------------Methode zum Ansprechen der KI-----------------------------------------------------------------
+
+  /* void _setAiAnswer(Message message) {
+    setState(() {
+      _aiAnswer =  ' KI sagt: -> ${message.message}';
+      _aiAnswer += 'Karte';
+    });
+  } */
 
   /* void _askAI() async {
     String question =
@@ -200,6 +210,8 @@ class _GamePageState extends State<GamePage> {
     });
   } */
 
+//-------------------------------------Design Erstellung-------------------------------------------------------------------
+
   @override
   Widget build(BuildContext context) {
     //_api = Provider.of<ChatApi>(context);
@@ -210,6 +222,8 @@ class _GamePageState extends State<GamePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            //---------------------------Einsatz und Spiel starten-----------------------------------------------------------
+
             if (_showStartButton) ...[
               Text('Guthaben: $_money€',
                   style: const TextStyle(color: Colors.white, fontSize: 20)),
@@ -246,6 +260,9 @@ class _GamePageState extends State<GamePage> {
                 child: const Text('Spiel starten'),
               ),
             ],
+
+            //------------------------------------------Ergebnis einblenden-----------------------------------------------------
+
             if (_showResult) ...[
               Container(
                 height: 500,
@@ -280,6 +297,9 @@ class _GamePageState extends State<GamePage> {
                 ),
               )
             ],
+
+            //--------------------------------------- Das Spiel---------------------------------------------------------------------------------------------------
+
             if (!_showStartButton && !_showResult) ...[
               Container(
                 height: 100,
@@ -361,7 +381,7 @@ class _GamePageState extends State<GamePage> {
                         tooltip:
                             'Frage die KI, was sie tun würde \n Das kostet 50€',
                         onPressed: _setAiAnswerWithoutAI,
-                        child: Icon(Icons.question_mark_sharp),
+                        child: const Icon(Icons.question_mark_sharp),
                       ),
                       Text(
                         _aiAnswer,
