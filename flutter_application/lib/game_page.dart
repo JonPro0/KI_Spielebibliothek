@@ -3,8 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/card_deck.dart';
 import 'package:flutter_application/Card.dart';
-//import 'package:openapi/api.dart';
-//import 'package:provider/provider.dart';
+import 'package:openapi/api.dart';
 
 class GamePage extends StatefulWidget {
   const GamePage({super.key});
@@ -32,7 +31,7 @@ class _GamePageState extends State<GamePage> {
   int _bet = 0;
   String _winner = '';
   String _aiAnswer = '';
-  // ChatApi? _api;
+  ChatApi? _api;
 
   //-------------------------Methoden Game Logik---------------------------------------------------------------------------------------------
 
@@ -178,21 +177,20 @@ class _GamePageState extends State<GamePage> {
 
   void _setAiAnswerWithoutAI() {
     setState(() {
-      _aiAnswer = ' KI sagt: -> Ich bin außer Gefecht. \n'
-          'Im nächsten Update stehe ich wieder zur Verfügung';
+      _aiAnswer = ' KI sagt: -> Ich bin außer Gefecht.';
     });
   }
 
 //----------------------------------Methode zum Ansprechen der KI-----------------------------------------------------------------
 
-  /* void _setAiAnswer(Message message) {
+  void _setAiAnswer(Message message) {
     setState(() {
       _aiAnswer =  ' KI sagt: -> ${message.message}';
       _aiAnswer += 'Karte';
     });
-  } */
+  }
 
-  /* void _askAI() async {
+  void _askAI() async {
     String question =
         'Ich spiele gerade BlackJack und möchte wissen, welcher mein bester Zug gerade wäre.' +
             'Der Kartendealer hat eine $_dealerScore und ich eine $_playerScore. Antworte bitte so, dass wenn du eine Karte ziehen würdest mit "Karte" anwortest und wenn nicht dann mit "Halten"';
@@ -208,7 +206,7 @@ class _GamePageState extends State<GamePage> {
       _money -= 50;
       _setAiAnswer(response!);
     });
-  } */
+  }
 
 //-------------------------------------Design Erstellung-------------------------------------------------------------------
 
@@ -380,7 +378,7 @@ class _GamePageState extends State<GamePage> {
                       FloatingActionButton(
                         tooltip:
                             'Frage die KI, was sie tun würde \n Das kostet 50€',
-                        onPressed: _setAiAnswerWithoutAI,
+                        onPressed: _askAI,
                         child: const Icon(Icons.question_mark_sharp),
                       ),
                       Text(
