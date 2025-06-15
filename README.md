@@ -34,9 +34,18 @@ Zusätzlich zu den User Interfaces ist eine KI Integration nötig, um den Spiels
 Außerdem braucht die WebApp noch bestimmte Logiken und Models, um das Kartenspiel richtig zu modellieren.
 
 ### 3.2 Anforderungen an den Server
-Der Server ist hauptsächlich für die KI Kommunikation zuständig. Er soll die Anfragen und Antworten in einem Objekt übertragen und die Anfrage korrekt formulieren, also einem gewissen Wording folgen, damit auch die KI immer nur die vom Entwickler gewünschte kurze Antwort zurückliefert. Um die KI nutzen zu können wurde die bereits vorgestellte Variante aus der Vorlesung genutzt.
+Der Server ist hauptsächlich für die KI Kommunikation zuständig. Er soll die Anfragen und Antworten in einem Objekt übertragen und die Anfrage korrekt formulieren, also einem gewissen Wording folgen, damit auch die KI immer nur die vom Entwickler gewünschte kurze Antwort zurückliefert. Um die KI nutzen zu können wurde die bereits vorgestellte Variante aus der Vorlesung genutzt, sprich es wurde der automatisch generierte ai code verwendet.
 
 ## 4. Umsetzung
+Im folgenden Kapitel wird die Paketstruktur und die technologische Umsetzung erläutert. Im Paket flutter-application befindet sich der Code fürs Frontend, sprich für den Client. Im server-application Paket befindet sich der Code fürs Backend, sprich für den Server. Im Paket tools befindet sich der Code, um den Api Code generieren zu lassen. Um diese Webapp nutzen zu können bitte zu Beginn das Tool ausführen. Im Rahmen dieser Ausarbeitung wurde schon häufiger erwähnt, dass in der Vorlesung vorgestellter Code als Basis für diese Web App genutzt wurde, deshalb wird der Fokus der Beschreibung der technischen Umsetzung sich auf den Client Teil beschränken.  
+
+Die zwei wichtigsten Ordner im Client Bereich (flutter-application) sind der assets/images und der lib Ordner. In ersterem befinden sich alle Bilder der Spielkarten, um das Blackjack Spiel gut darstellen zu können. Im lib Ordner befindet sich dann das Herzstück dieses Projektes, der Code. In diesem Paket enthalten sind 7 Klassen, auf welche jetzt Stück für Stück eingegangen wird.  
+main.dart -> In dieser Klasse befindet sich der Code um den Api Client zu registrieren und die Website aufzubauen. Um diese aufzubauen wird jedoch nicht der komplette Code hingeschrieben, was sehr unpbersichtlich wäre, sondern es wird eine weitere Klasse referenziert, die home_page.dart.  
+home_page.dart -> In dieser Klasse befinden sich die in Kapitel 3.1 erwähnten Buttons, um zu den jeweiligen "Seiten" in der WebApp zu navigieren. Dafür wird der Befehl Navigator.push() verwendet.  
+rules_page.dart und shop_page.dart -> Innerhalb dieser beiden Klassen werden einmal die Regeln von Blackjack erläutert und dargestellt und in der anderen Klasse befindet sich der Code für die Shop Seite, welche zu diesem Zeitpunkt noch nicht implementiert wurde.  
+card.dart -> Um eine Spielkarte richtig speichern zu können, musste ein eigenes Objekt erschaffen werden, um auf verschiedene Aspekte einer Karte zugreifen zu können. Diese Karte wird dank der Klasse so gespeichert, dass eine Karte immer ein int value (Wert der Karte), einen String name für den Namen der Karte und ein String img, um den Pfad zum richtigen Bild speichern und später referenzieren zu können.  
+card_deck.dart -> Hier wird ein Kartendeck erstellt, also eine generische Liste des Datentyps Card mkt allen 52 Spielkarten, die im BlackJack verwendet werden, denn Joker sind beim BlackJack nicht erlaubt. Zudem befindet sich dort eine Methode, um dieses Kartendeck an den Adressor zurückzugeben und diesem ein neues Kartendeck zu erstellen.  
+game_page.dart ->
 
 ## 5. Fazit und Ausblick
 ### 5.1 Fazit
