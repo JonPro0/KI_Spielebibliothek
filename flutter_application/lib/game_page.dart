@@ -186,7 +186,6 @@ class _GamePageState extends State<GamePage> {
   void _setAiAnswer(Message message) {
     setState(() {
       _aiAnswer =  ' KI sagt: -> ${message.message}';
-      _aiAnswer += 'Karte';
     });
   }
 
@@ -212,7 +211,7 @@ class _GamePageState extends State<GamePage> {
 
   @override
   Widget build(BuildContext context) {
-    //_api = Provider.of<ChatApi>(context);
+    _api = Provider.of<ChatApi>(context);
     return Scaffold(
       backgroundColor: const Color(0xFF0B6623),
       appBar: AppBar(title: const Text('Spiel')),
